@@ -84,6 +84,9 @@ export default function makeEditor({ editorPluginsToRun }) {
       const { props } = this
       const { AST, specObject } = props
 
+      // fixes a warning, see https://github.com/ajaxorg/ace/issues/2499
+      editor.$blockScrolling = Infinity
+
       const langTools = ace.acequire("ace/ext/language_tools")
       const session = editor.getSession()
 
